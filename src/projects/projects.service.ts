@@ -99,7 +99,7 @@ export class ProjectsService {
   //  GET PROJECTS BY USER
   async findAll(
     request: ProjectListRequest,
-    userId,
+    userId: string,
   ): Promise<ProjectListDto[]> {
     if (userId === null) {
       throw new BadRequestException(

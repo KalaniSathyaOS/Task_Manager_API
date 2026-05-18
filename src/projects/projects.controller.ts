@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
   Query,
@@ -26,7 +27,7 @@ export class ProjectsController {
     return this.projectsService.create(req.user.userId, dto);
   }
 
-  @Put(':id')
+  @Patch(':id')
   update(@Param('id') id: string, @Req() req, @Body() dto: UpdateProjectDto) {
     return this.projectsService.update(id, req.user.userId, dto);
   }

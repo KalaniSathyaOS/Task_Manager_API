@@ -80,7 +80,7 @@ export class TasksService {
     }
 
     // UPDATE ONLY CHANGED DATA
-    const data: any = {};
+    const data: Prisma.TaskUpdateInput = {};
 
     if (dto.title !== undefined && dto.title !== task.title) {
       data.title = dto.title;
@@ -118,7 +118,7 @@ export class TasksService {
   }
 
   //  GET PROJECTS BY USER
-  async getByProject(userId, request: TaskListRequest) {
+  async getByProject(userId: string, request: TaskListRequest) {
     if (!request.projectId) {
       throw new BadRequestException('projectId is required to fetch tasks');
     }
